@@ -43,7 +43,10 @@ public class Player : MonoBehaviour
     void Move()
     {
         if (Input.GetButtonDown("Horizontal"))
-            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal");
+        {
+            bool flag = Input.GetAxisRaw("Horizontal") > 0;
+            spriteRenderer.flipX = flag;
+        }
 
         rigid.AddForce(Vector2.right * hDirection, ForceMode2D.Impulse);
 
